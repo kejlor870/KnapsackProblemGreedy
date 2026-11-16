@@ -4,6 +4,7 @@ public class Item {
     String name;
     int value;
     int weight;
+    double ratio;
 
     public Item(String name, int value, int weight){
         if(name.isEmpty()) throw new IllegalArgumentException("Nazwa przedmiotu nie moze byc pusta.");
@@ -13,5 +14,10 @@ public class Item {
         this.name = name;
         this.value = value;
         this.weight = weight;
+        this.ratio = (double) value / weight;
+    }
+
+    public double getRatio(){
+        return this.ratio;
     }
 }
