@@ -21,6 +21,14 @@ public class Item {
         return weight;
     }
 
+    public int getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public double getRatio(){
         return this.ratio;
     }

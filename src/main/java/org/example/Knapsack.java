@@ -15,6 +15,8 @@ public class Knapsack {
     }
 
     public boolean provideItems(){
+        items.clear();
+
         System.out.print("Podaj liczbe przedmiotow: ");
         int itemsNumber = scanner.nextInt();
 
@@ -75,27 +77,56 @@ public class Knapsack {
             }
         }
 
-        return knapsack;
+        return List.copyOf(knapsack);
     }
 
     public void demoItems(){
-        this.capacity = 10;
+        items.clear();
+        knapsack.clear();
 
-        items.add(new Item("Koc", 10, 1));
-        items.add(new Item("Pilka", 5, 3));
-        items.add(new Item("Woda", 2, 4));
+        capacity = 20;
+
+        items.add(new Item("Laptop", 100, 8));
+        items.add(new Item("Telefon", 80, 4));
+        items.add(new Item("Koc", 20, 5));
+        items.add(new Item("Sluchawki", 50, 2));
+        items.add(new Item("Powerbank", 35, 3));
     }
 
     public void displayItems(){
+        if(items.isEmpty()){
+            System.out.println("Brak przedmiotow do wyswietlenia.");
+            return;
+        }
+
         for(Item item : items){
             System.out.println(item.getStringFullInfo());
         }
     }
 
     public void displayFilledKnapsack(){
-        for(Item item : knapsack){
-            System.out.println(item.getStringFullInfo());
+        if(knapsack.isEmpty()){
+            System.out.println("Plecak jest pusty.");
+            return;
         }
+
+        int totalValue = 0;
+        int totalWeight = 0;
+        for(Item item : knapsack){
+            // Display item info
+            System.out.println("\t" +
+                    "|| Nazwa: " + item.getName() +
+                    " | Wartosc: " + item.getValue() +
+                    " | Waga: " + item.getWeight()
+            );
+
+            // Increase total value
+            totalValue += item.getValue();
+            totalWeight += item.getWeight();
+        }
+
+        System.out.println("# Laczna wartosc przedmiotow: " + totalValue);
+        System.out.println("# Laczna waga przedmiotow: " + totalWeight + "/" + capacity);
     }
 
     public int getCapacity() {
