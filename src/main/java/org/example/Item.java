@@ -1,10 +1,10 @@
 package org.example;
 
 public class Item {
-    String name;
-    int value;
-    int weight;
-    double ratio;
+    private String name;
+    private int value;
+    private int weight;
+    private double ratio;
 
     public Item(String name, int value, int weight){
         if(name.isEmpty()) throw new IllegalArgumentException("Nazwa przedmiotu nie moze byc pusta.");
@@ -15,6 +15,10 @@ public class Item {
         this.value = value;
         this.weight = weight;
         this.ratio = (double) value / weight;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     public double getRatio(){

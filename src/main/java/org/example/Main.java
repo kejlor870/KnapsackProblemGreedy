@@ -32,7 +32,7 @@ public class Main {
         System.out.println("\n== Podane przedmioty ==");
         knapsack.displayItems();
 
-        System.out.println("== Pojemnosc plecaka: " + knapsack.getCapacity() + " ==");
+        System.out.println("== MAX waga w plecaku: " + knapsack.getCapacity() + " ==");
 
         System.out.println("== Przedmioty w plecaku ==");
         knapsack.knapsackFill();

@@ -18,7 +18,7 @@ public class Knapsack {
         System.out.print("Podaj liczbe przedmiotow: ");
         int itemsNumber = scanner.nextInt();
 
-        System.out.print("Podaj pojemnosc plecaka: ");
+        System.out.print("Podaj MAX wage plecaka: ");
         capacity = scanner.nextInt();
         scanner.nextLine(); // Cleaning buffor
 
@@ -47,9 +47,9 @@ public class Knapsack {
         // Greedy algorithm pushing sorted items to knapsack list
         int currentWeight = 0;
         for(Item item : items){
-            if(currentWeight + item.weight <= capacity){
+            if(currentWeight + item.getWeight() <= capacity){
                 knapsack.add(item);
-                currentWeight += item.weight;
+                currentWeight += item.getWeight();
             }
         }
 
