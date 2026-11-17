@@ -28,8 +28,8 @@ public class Knapsack {
         System.out.print("Podaj MAX wage plecaka: ");
         capacity = scanner.nextInt();
 
-        if(capacity < 0){
-            System.out.println("Pojemnosc plecaka nie moze byc ujmena.");
+        if(capacity <= 0){
+            System.out.println("Pojemnosc plecaka musi byc wieksza od 0.");
             return false;
         }
 
