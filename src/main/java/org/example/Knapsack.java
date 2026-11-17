@@ -14,12 +14,23 @@ public class Knapsack {
         this.scanner = scanner;
     }
 
-    public void provideItems(){
+    public boolean provideItems(){
         System.out.print("Podaj liczbe przedmiotow: ");
         int itemsNumber = scanner.nextInt();
 
+        if(itemsNumber < 0){
+            System.out.println("Liczba przedmiotow nie moze byc ujemna.");
+            return false;
+        }
+
         System.out.print("Podaj MAX wage plecaka: ");
         capacity = scanner.nextInt();
+
+        if(capacity < 0){
+            System.out.println("Pojemnosc plecaka nie moze byc ujmena.");
+            return false;
+        }
+
         scanner.nextLine(); // Cleaning buffor
 
         // Pobieranie od uzytkonwika danych do itemow i dodawanie ich do listy
@@ -36,11 +47,22 @@ public class Knapsack {
             int itemWeight = scanner.nextInt();
 
             scanner.nextLine(); // Cleaning buffor
+
+            if (itemName.isBlank() || itemValue < 0 || itemWeight <= 0) {
+                System.out.println("Podano niepoprawne dane przedmiotu.");
+                items.clear();
+                return false;
+            }
+
             this.items.add(new Item(itemName, itemValue, itemWeight));
         }
+
+        return true;
     }
 
     public List<Item> knapsackFill(){
+        knapsack.clear();
+
         // Descending sorting items by ratio
         items.sort((a, b) -> Double.compare(b.getRatio(), a.getRatio()));
 

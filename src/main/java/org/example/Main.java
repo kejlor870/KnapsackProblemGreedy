@@ -17,9 +17,10 @@ public class Main {
         System.out.print("Wybierz: ");
         int choose = scanner.nextInt();
 
+        boolean correctData = true;
         switch (choose){
             case 1:
-                knapsack.provideItems();
+                correctData = knapsack.provideItems();
                 break;
             case 2:
                 knapsack.demoItems();
@@ -27,6 +28,12 @@ public class Main {
             default:
                 System.out.println("Niepoprawny wybor, konczenie...");
                 return;
+        }
+
+        // Validation
+        if(!correctData){
+            System.out.println("Podano niepoprawne dane.");
+            return;
         }
 
         System.out.println("\n== Podane przedmioty ==");
