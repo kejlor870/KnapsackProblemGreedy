@@ -44,9 +44,15 @@ public class Knapsack {
         // Descending sorting items by ratio
         items.sort((a, b) -> Double.compare(b.getRatio(), a.getRatio()));
 
-        // Algorytm zachlanny wpycha do plecaka
+        // Greedy algorithm pushing sorted items to knapsack list
+        int currentWeight = 0;
+        for(Item item : items){
+            if(currentWeight + item.weight <= capacity){
+                knapsack.add(item);
+                currentWeight += item.weight;
+            }
+        }
 
-        // Zwracamy wypchana liste z itemami (plecak)
         return knapsack;
     }
 
