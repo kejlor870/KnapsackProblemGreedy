@@ -20,4 +20,12 @@ public class Item {
     public double getRatio(){
         return this.ratio;
     }
+
+    public String getStringFullInfo(){
+        return  "V/W: " + String.format("%.3f",  this.ratio) +
+                " || Nazwa: " + this.name +
+                " | Wartosc: " + this.value +
+                " | Waga: " + this.weight
+        ;
+    }
 }
