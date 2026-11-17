@@ -16,6 +16,7 @@ public class Knapsack {
 
     public boolean provideItems(){
         items.clear();
+        knapsack.clear();
 
         System.out.print("Podaj liczbe przedmiotow: ");
         int itemsNumber = scanner.nextInt();
@@ -28,8 +29,8 @@ public class Knapsack {
         System.out.print("Podaj MAX wage plecaka: ");
         capacity = scanner.nextInt();
 
-        if(capacity <= 0){
-            System.out.println("Pojemnosc plecaka musi byc wieksza od 0.");
+        if(capacity < 0){
+            System.out.println("Pojemnosc plecaka nie moze byc ujemna.");
             return false;
         }
 
@@ -69,7 +70,7 @@ public class Knapsack {
         items.sort((a, b) -> Double.compare(b.getRatio(), a.getRatio()));
 
         // Greedy algorithm pushing sorted items to knapsack list
-        int currentWeight = 0;
+        long currentWeight = 0;
         for(Item item : items){
             if(currentWeight + item.getWeight() <= capacity){
                 knapsack.add(item);
@@ -110,8 +111,8 @@ public class Knapsack {
             return;
         }
 
-        int totalValue = 0;
-        int totalWeight = 0;
+        long totalValue = 0;
+        long totalWeight = 0;
         for(Item item : knapsack){
             // Display item info
             System.out.println("\t" +
