@@ -115,7 +115,7 @@ public class Knapsack {
         for(Item item : knapsack){
             // Display item info
             System.out.println("\t" +
-                    "|| Nazwa: " + item.getName() +
+                    "+ Nazwa: " + item.getName() +
                     " | Wartosc: " + item.getValue() +
                     " | Waga: " + item.getWeight()
             );
