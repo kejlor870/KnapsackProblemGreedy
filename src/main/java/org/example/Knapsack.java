@@ -18,37 +18,32 @@ public class Knapsack {
         items.clear();
         knapsack.clear();
 
-        System.out.print("Podaj liczbe przedmiotow: ");
-        int itemsNumber = scanner.nextInt();
+        int itemsNumber = InputUtils.readInt(scanner, "Podaj liczbe przedmiotow: ");
+        scanner.nextLine(); // Cleaning buffor
 
         if(itemsNumber < 0){
             System.out.println("Liczba przedmiotow nie moze byc ujemna.");
             return false;
         }
 
-        System.out.print("Podaj MAX wage plecaka: ");
-        capacity = scanner.nextInt();
+        capacity = InputUtils.readInt(scanner, "Podaj MAX wage plecaka: ");
+        scanner.nextLine(); // Cleaning buffor
 
         if(capacity < 0){
             System.out.println("Pojemnosc plecaka nie moze byc ujemna.");
             return false;
         }
 
-        scanner.nextLine(); // Cleaning buffor
-
         // Pobieranie od uzytkonwika danych do itemow i dodawanie ich do listy
         for(int i=1; i <= itemsNumber; i++){
             System.out.println("# Przedmiot nr. " + i);
 
-            System.out.print("Podaj nazwe: ");
-            String itemName = scanner.nextLine();
+            String itemName = InputUtils.readString(scanner, "Podaj nazwe: ");
 
-            System.out.print("Podaj wartosc: ");
-            int itemValue = scanner.nextInt();
+            int itemValue = InputUtils.readInt(scanner, "Podaj wartosc: ");
+            scanner.nextLine(); // Cleaning buffor
 
-            System.out.print("Podaj wage: ");
-            int itemWeight = scanner.nextInt();
-
+            int itemWeight = InputUtils.readInt(scanner, "Podaj wage: ");
             scanner.nextLine(); // Cleaning buffor
 
             if (itemName.isBlank() || itemValue < 0 || itemWeight <= 0) {
