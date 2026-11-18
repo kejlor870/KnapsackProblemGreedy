@@ -40,17 +40,11 @@ public class Knapsack {
 
             String itemName = InputUtils.readString(scanner, "Podaj nazwe: ");
 
-            int itemValue = InputUtils.readInt(scanner, "Podaj wartosc: ");
+            int itemValue = InputUtils.readPositiveInt(scanner, "Podaj wartosc: ");
             scanner.nextLine(); // Cleaning buffor
 
-            int itemWeight = InputUtils.readInt(scanner, "Podaj wage: ");
+            int itemWeight = InputUtils.readNonNegativeInt(scanner, "Podaj wage: ");
             scanner.nextLine(); // Cleaning buffor
-
-            if (itemName.isBlank() || itemValue < 0 || itemWeight <= 0) {
-                System.out.println("Podano niepoprawne dane przedmiotu.");
-                items.clear();
-                return false;
-            }
 
             this.items.add(new Item(itemName, itemValue, itemWeight));
         }

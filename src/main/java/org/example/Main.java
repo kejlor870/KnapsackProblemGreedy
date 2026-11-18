@@ -12,7 +12,7 @@ public class Main {
         System.out.println("1. Wlasna lista przedmiotow");
         System.out.println("2. Przykladowa lista");
 
-        int choose = InputUtils.readInt(scanner, "Wybierz: ");
+        int choose = InputUtils.readNonNegativeInt(scanner, "Wybierz: ");
         scanner.nextLine(); // Cleaning buffor
 
         boolean correctData = true;
