@@ -21,4 +21,20 @@ public class InputUtils {
         }
     }
 
+    // Not empty String
+    public static String readString(Scanner scanner, String message) {
+        while (true) {
+            System.out.print(message);
+
+            String input = scanner.nextLine();
+
+            if (!input.isBlank()) {
+                return input.trim();
+            }
+
+            System.out.println(
+                    "Niepoprawne dane! Tekst nie moze byc pusty."
+            );
+        }
+    }
 }
