@@ -34,7 +34,7 @@ public class Knapsack {
             return false;
         }
 
-        // Pobieranie od uzytkonwika danych do itemow i dodawanie ich do listy
+        // Collecting data for items from the user and adding them to lists
         for(int i=1; i <= itemsNumber; i++){
             System.out.println("# Przedmiot nr. " + i);
 
@@ -43,7 +43,7 @@ public class Knapsack {
             int itemValue = InputUtils.readPositiveInt(scanner, "Podaj wartosc: ");
             scanner.nextLine(); // Cleaning buffor
 
-            int itemWeight = InputUtils.readNonNegativeInt(scanner, "Podaj wage: ");
+            int itemWeight = InputUtils.readPositiveInt(scanner, "Podaj wage: ");
             scanner.nextLine(); // Cleaning buffor
 
             this.items.add(new Item(itemName, itemValue, itemWeight));
